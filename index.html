@@ -1,0 +1,284 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Replit</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <header>
+      <div class="logo">
+        <a href="index.html">
+          <img src="Image/logo.png" alt="Site logo" id="logo" />
+        </a>
+      </div>
+      <nav>
+        <div class="links">
+          <ul>
+            <li>
+              <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Акции</a>
+            </li>
+            <li>
+              <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Магазины</a>
+            </li>
+            <li>
+              <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Сервис</a>
+            </li>
+            <li>
+              <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Контакты</a>
+            </li>
+            <li>
+              <a href="regis.html">Аккаунт</a>
+            </li>
+            <li>
+              <a href="cart.html">Корзина</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <div class="search">
+        <input type="text" placeholder="Поиск..." />
+        <button>Искать</button>
+      </div>
+    </header>
+
+    <div class="filters">
+      <div id="filters">
+        <h3>Наличие в магазине:</h3>
+        <input type="checkbox" class="availability-filter" value="ВНаличии" />
+        В наличии
+        <input
+          type="checkbox"
+          class="availability-filter"
+          value="НетВНаличии"
+        />
+        Нет в наличии
+
+        <input type="checkbox" class="availability-filter" value="ПодЗаказ" />
+        Под заказ
+
+        <h3>Цена:</h3>
+        <label>От: <input type="number" id="price-filter-min" min="0" /></label>
+        <label>До: <input type="number" id="price-filter-max" min="0" /></label>
+
+        <h3>Производитель:</h3>
+        <select id="manufacturer-filter">
+          <option value="all">Все</option>
+          <option value="apple">Apple</option>
+          <option value="Samsung">Samsung</option>
+          <option value="Xiaomi">Xiaomi</option>
+          <option value="Poco">Poco</option>
+        </select>
+
+        <h3>Объем встроенной памяти:</h3>
+        <select id="storage-filter">
+          <option value="all">Все</option>
+          <option value="32gb">32GB</option>
+          <option value="64gb">64GB</option>
+          <option value="128gb">128GB</option>
+          <option value="256gb">256GB</option>
+          <option value="512gb">512GB</option>
+        </select>
+
+        <h3>Операционная система:</h3>
+        <select id="OS-filter">
+          <option value="all">Все</option>
+          <option value="Android">Android</option>
+          <option value="IOS">IOS</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="cart">
+      <button id="open-cart-btn">Корзина</button>
+      <div id="cart-window" style="display: none">
+        <h2>Корзина</h2>
+        <div class="close-btn">
+          <button id="close-cart-btn"></button>
+        </div>
+        <div id="cart-items"></div>
+      </div>
+    </div>
+
+    <div
+      class="product-card"
+      data-availability="ПодЗаказ"
+      data-price="24999"
+      data-manufacturer="Samsung"
+      data-storage="128gb"
+      data-OS="Android"
+    >
+      <img src="https://img.mvideo.ru/Big/30067246bb.jpg" alt="Product Image" />
+      <h2>Samsung A54 128 ГБ</h2>
+      <p>Description of the product.</p>
+      <p>24 999 ₽</p>
+      <button
+        class="buy-btn"
+        onclick="addToCart('Samsung A54 128 ГБ',         'https://img.mvideo.ru/Big/30067246bb.jpg', 24999, 'This is a brief product description')"
+      >
+        Купить
+      </button>
+    </div>
+
+    <div
+      class="product-card"
+      data-availability="ВНаличии"
+      data-price="15999"
+      data-manufacturer="Xiaomi"
+      data-storage="64gb"
+      data-OS="Android"
+    >
+      <img
+        src="https://img.mvideo.ru/Big/400148235bb1.jpg"
+        alt="Product Image"
+      />
+      <h2>Xiaomi Redmi Note 12 64 ГБ</h2>
+      <p>Description of the product.</p>
+      <p>15 999 ₽</p>
+      <button
+        class="buy-btn"
+        onclick="addToCart('Xiaomi Redmi Note 12 64 ГБ', 'https://img.mvideo.ru/Big/400148235bb1.jpg', 15999, 'This is a brief product description')"
+      >
+        Купить
+      </button>
+    </div>
+
+    <div
+      class="product-card"
+      data-availability="ВНаличии"
+      data-price="30000"
+      data-manufacturer="apple"
+      data-storage="128gb"
+      data-OS="IOS"
+    >
+      <img
+        src="https://cdn.shopify.com/s/files/1/0610/5327/2250/products/iphone11_c1b3b8d9-85f1-4816-8a62-86a1bd224ec7.png?v=1644748229"
+        alt="Product Image"
+      />
+      <h2>Iphone 11 128 ГБ</h2>
+      <p>Description of the product.</p>
+      <p>30 000 ₽</p>
+      <button
+        class="buy-btn"
+        onclick="addToCart('Iphone 11 128 ГБ', 'https://cdn.shopify.com/s/files/1/0610/5327/2250/products/iphone11_c1b3b8d9-85f1-4816-8a62-86a1bd224ec7.png?v=1644748229', 30000, 'This is a brief product description')"
+      >
+        Купить
+      </button>
+    </div>
+
+    <div
+      class="product-card"
+      data-availability="НетВНаличии"
+      data-price="64999"
+      data-manufacturer="Samsung"
+      data-storage="512gb"
+      data-OS="Android"
+    >
+      <img
+        src="https://static.eldorado.ru/img1/p/b/820144001.jpg/resize/380x240/"
+        alt="Product Image"
+      />
+      <h2>Samsung Flip 4 512 ГБ</h2>
+      <p>Description of the product.</p>
+      <p>64 999 ₽</p>
+      <button
+        class="buy-btn"
+        onclick="addToCart('Samsung Flip 4 512 ГБ', 'https://static.eldorado.ru/img1/p/b/820144001.jpg/resize/380x240/', 64999, 'This is a brief product description')"
+      >
+        Купить
+      </button>
+    </div>
+
+    <div
+      class="product-card"
+      data-availability="ВНаличии"
+      data-price="56000"
+      data-manufacturer="apple"
+      data-storage="512gb"
+      data-OS="IOS"
+    >
+      <img src="https://img.mvideo.ru/Big/30063535bb.jpg" alt="Product Image" />
+      <h2>Iphone 13 512 ГБ</h2>
+      <p>Description of the product.</p>
+      <p>56 000 ₽</p>
+      <button
+        class="buy-btn"
+        onclick="addToCart('Iphone 13 512 ГБ', 'https://img.mvideo.ru/Big/30063535bb.jpg', 56000, 'This is a brief product description')"
+      >
+        Купить
+      </button>
+    </div>
+
+    <div
+      class="product-card"
+      data-availability="ВНаличии"
+      data-price="129999"
+      data-manufacturer="Xiaomi"
+      data-storage="512gb"
+      data-OS="Android"
+    >
+      <img
+        src="https://static.eldorado.ru/img1/b/bb/886844001.jpg/resize/380x240/"
+        alt="Product Image"
+      />
+      <h2>Xiaomi 13 Ultra 512 ГБ</h2>
+      <p>Description of the product.</p>
+      <p>129 999 ₽</p>
+      <button
+        class="buy-btn"
+        onclick="addToCart('Xiaomi 13 Ultra 512 ГБ', 'https://static.eldorado.ru/img1/b/bb/886844001.jpg/resize/380x240/', 129999, 'This is a brief product description')"
+      >
+        Купить
+      </button>
+    </div>
+
+    <div
+      class="product-card"
+      data-availability="ВНаличии"
+      data-price="15999"
+      data-manufacturer="Poco"
+      data-storage="128gb"
+      data-OS="Android"
+    >
+      <img
+        src="https://cdn.ksyru0-fusion.fds.api.mi-img.com/b2c-mishop-pms-ru/pms_1618567653.21586210.png?w=600&h=600&thumb=1"
+        alt="Product Image"
+      />
+      <h2>POCO X3 Pro 128 ГБ</h2>
+      <p>Description of the product.</p>
+      <p>15 999 ₽</p>
+      <button
+        class="buy-btn"
+        onclick="addToCart('POCO X3 Pro 128 ГБ', 'https://cdn.ksyru0-fusion.fds.api.mi-img.com/b2c-mishop-pms-ru/pms_1618567653.21586210.png?w=600&h=600&thumb=1', 15999, 'This is a brief product description')"
+      >
+        Купить
+      </button>
+    </div>
+
+    <div
+      class="product-card"
+      data-availability="ВНаличии"
+      data-price="56999"
+      data-manufacturer="Poco"
+      data-storage="256gb"
+      data-OS="Android"
+    >
+      <img
+        src="https://img.mvideo.ru/Big/400214948bb.jpg"
+        alt="Product Image"
+      />
+      <h2>POCO F5 Pro 256 ГБ</h2>
+      <p>Description of the product.</p>
+      <p>56 999 ₽</p>
+      <button
+        class="buy-btn"
+        onclick="addToCart('POCO F5 Pro 256 ГБ', 'https://img.mvideo.ru/Big/400214948bb.jpg', 56999, 'This is a brief product description')"
+      >
+        Купить
+      </button>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
